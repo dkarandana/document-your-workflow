@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><p><a href="https://travis-ci.org/material-components/material-components-web/"><img src="https://img.shields.io/travis/material-components/material-components-web/master.svg" alt="Build Status"></a>
+<a href="https://codecov.io/gh/material-components/material-components-web"><img src="https://codecov.io/gh/material-components/material-components-web/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://discord.gg/material-components"><img src="https://img.shields.io/discord/259087343246508035.svg" alt="Chat"></a></p>
+<h1>Document your workflow</h1><p>Material Components for the web (MDC Web) helps developers execute <a href="https://www.material.io">Material Design</a>.
+Developed by a core team of engineers and UX designers at Google, these components enable a reliable development workflow to build beautiful and functional web projects.</p>
+<p>Material Components for the web is the successor to <a href="https://getmdl.io/">Material Design Lite</a>, and has 3 high-level goals:</p>
+<ul>
+<li>Production-ready components consumable in an a-la-carte fashion</li>
+<li>Best-in-class performance and adherence to the <a href="https://material.io/guidelines">Material Design guidelines</a></li>
+<li>Seamless integration with other JS frameworks and libraries<ul>
+<li><a href="https://github.com/material-components/material-components-web-react">Material Components for React</a>: MDC Web integration for React (using <a href="./docs/integrating-into-frameworks.md#the-advanced-approach-using-foundations-and-adapters">foundations/adapters</a>)</li>
+<li><a href="https://github.com/material-components/material-components-web-components">Material Web Components</a>: MDC Web integration for Web Components (using <a href="./docs/integrating-into-frameworks.md#the-simple-approach-wrapping-mdc-web-vanilla-components">vanilla components</a>)</li>
+<li>Additional third-party integrations<ul>
+<li><a href="https://github.com/prateekbh/preact-material-components">Preact Material Components</a></li>
+<li><a href="https://github.com/jamesmfriedman/rmwc">RMWC: React Material Web Components</a></li>
+<li><a href="https://github.com/trimox/angular-mdc-web">Angular MDC</a></li>
+<li><a href="https://blox.src.zone/material">Blox Material</a>: Angular Integration Library.</li>
+<li><a href="https://github.com/stasson/vue-mdc-adapter">Vue MDC Adapter</a>: MDC Web Integration for Vue.js (using <a href="./docs/integrating-into-frameworks.md#the-advanced-approach-using-foundations-and-adapters">foundations/adapters</a>.)</li>
+<li><a href="https://github.com/matsp/material-components-vue">Material Components Vue</a>: MDC Web Integration for Vue.js (using <a href="./docs/integrating-into-frameworks.md#the-simple-approach-wrapping-mdc-web-vanilla-components">vanilla components</a>)</li>
+</ul>
+</li>
+<li>More coming soon! Feel free to submit a pull request adding your library to this list, so long as you meet our <a href="docs/integrating-into-frameworks.md">criteria</a>.</li>
+</ul>
+</li>
+</ul>
+<p>MDC Web strives to seamlessly incorporate into a wider range of usage contexts, from simple static websites to complex, JavaScript-heavy applications to hybrid client/server rendering systems. In short, whether you're already heavily invested in another framework or not, it should be easy to incorporate Material Components into your site in a lightweight, idiomatic fashion.</p>
+<p><strong><a href="https://material-components.github.io/material-components-web-catalog">Demos</a></strong> (updated with every release)</p>
+<h2>Quick start</h2><blockquote>
+<p>Note: This guide assumes you have Node.js and npm installed locally.</p>
+</blockquote>
+<h3>Include CSS for a component</h3><blockquote>
+<p>Note: This guide assumes you have webpack configured to compile Sass into CSS. See the <a href="docs/getting-started.md">getting started guide</a> for pointers on how to configure webpack.</p>
+</blockquote>
+<p>To include the Sass files for the Material Design button, install the Node dependency:</p>
+<pre class="prettyprint source"><code>npm install @material/button</code></pre><p>Then import the Sass files for <code>@material/button</code> into your application. You can also use Sass mixins to customize the button:</p>
+<pre class="prettyprint source lang-scss"><code>@import &quot;@material/button/mdc-button&quot;;
+
+.foo-button {
+  @include mdc-button-ink-color(teal);
+  @include mdc-states(teal);
+}</code></pre><p>You also need to configure sass-loader to understand the <code>@material</code> imports used by MDC Web. Update your <code>webpack.config.js</code> by changing <code>{ loader: 'sass-loader' }</code> to:</p>
+<pre class="prettyprint source lang-js"><code>{
+  loader: 'sass-loader',
+  options: {
+    includePaths: ['./node_modules']
+  }
+}</code></pre><p><code>@material/button</code> has <a href="packages/mdc-button/README.md">documentation</a> about the required HTML for a button. Update your application's HTML to include the MDC Button markup, and add the <code>foo-button</code> class to the element:</p>
+<pre class="prettyprint source lang-html"><code>&lt;button class=&quot;foo-button mdc-button&quot;>
+  Button
+&lt;/button></code></pre><p>This will produce a customized Material Design button!</p>
+<p><img src="docs/button.png" alt="Button" width="90" height="36"></p>
+<h3>Include JavaScript for a component</h3><blockquote>
+<p>Note: This guide assumes you have webpack configured to compile ES2015 into JavaScript. See the <a href="docs/getting-started.md">getting started guide</a> for pointers on how to configure webpack.</p>
+</blockquote>
+<p>To include the ES2015 files for the Material Design ripple, install the dependency:</p>
+<pre class="prettyprint source"><code>npm install @material/ripple</code></pre><p>Then import the ES2015 file for @material/ripple into your application, and initialize an MDCRipple with a DOM element:</p>
+<pre class="prettyprint source lang-js"><code>import {MDCRipple} from '@material/ripple';
+const ripple = new MDCRipple(document.querySelector('.foo-button'));</code></pre><p>This will produce a Material Design ripple on the button!</p>
+<p><img src="docs/button_with_ripple.png" alt="Button with Ripple" width="90" height="36"></p>
+<h2>Useful Links</h2><ul>
+<li><a href="docs/getting-started.md">Getting Started Guide</a></li>
+<li><a href="packages/">All Components</a></li>
+<li><a href="demos/">Demos</a></li>
+<li><a href="CONTRIBUTING.md">Contributing</a></li>
+<li><a href="https://www.material.io">Material.io</a> (external site)</li>
+<li><a href="https://material.io/guidelines">Material Design Guidelines</a> (external site)</li>
+</ul>
+<h2>Browser Support</h2><p>We officially support the last two versions of every major browser. Specifically, we test on the following browsers:</p>
+<ul>
+<li>Chrome</li>
+<li>Safari</li>
+<li>Firefox</li>
+<li>IE 11/Edge</li>
+<li>Opera</li>
+<li>Mobile Safari</li>
+<li>Chrome on Android</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Point.html">Point</a></li><li><a href="Storage.html">Storage</a></li></ul><h3>Namespaces</h3><ul><li><a href="core.html">core</a></li><li><a href="MyNamespace.html">MyNamespace</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-CHANGELOG.html">CHANGELOG</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jun 28 2018 17:29:29 GMT+0530 (IST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
